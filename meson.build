@@ -47,8 +47,8 @@ libbpf_dep = declare_dependency(
   include_directories: include_directories('.'),
 )
 
-dep_libelf = dependency('libelf', required: true)
-dep_zlib = dependency('zlib', required: true)
+dep_libelf = dependency('libelf', fallback: ['libelf', 'libelf_dep'])
+dep_zlib = dependency('zlib', fallback: ['zlib', 'zlib_dep'])
 
 libbpf = library(
   'bpf',
